@@ -55,13 +55,10 @@ timesheetsRouter.post('/', (req, res, next) => {
 
   db.run(query, values, function(err) {
     if (err) {
-      console.log('d');
       next(err);
     } else {
-      console.log('e');
       db.get(`SELECT * FROM Timesheet WHERE Timesheet.id = ${this.lastID}`,
         (err, timesheet) => {
-          console.log('f');
           res.status(201).json({timesheet: timesheet});
         });
     }

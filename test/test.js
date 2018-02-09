@@ -973,6 +973,7 @@ describe('DELETE /api/menus/:id', function() {
 
 describe('GET /api/menus/:menuId/menu-items', function() {
   before(function(done) {
+    seed.seedMenuDatabase();
     seed.seedMenuItemDatabase(done);
   });
 

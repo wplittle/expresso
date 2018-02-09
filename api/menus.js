@@ -24,6 +24,8 @@ menusRouter.param('menuId', (req, res, next, menuId) => {
   });
 });
 
+menusRouter.use('/:menuId/menu-items', menuitemsRouter);
+
 menusRouter.get('/', (req, res, next) => {
   db.all('SELECT * FROM Menu', (err, menus) => {
     if(err) {
@@ -91,9 +93,7 @@ menusRouter.delete('/:menuId', (req, res, next) => {
   const itemValues = {
     $menuId: req.params.menuId
   };
-  console.log(req.params);
   db.get(itemQuery, itemValues, (err, items) => {
-    console.log(items);
     if(err) {
       next(err);
     } else if (items) {
