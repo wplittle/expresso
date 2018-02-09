@@ -926,7 +926,8 @@ describe('PUT /api/menus/:id', function() {
 
 describe('DELETE /api/menus/:id', function() {
   beforeEach(function(done) {
-    seed.seedMenuDatabase(done);
+    seed.seedMenuDatabase();
+    seed.seedMenuItemDatabase(done);
   });
 
   it('should remove the menu with the specified ID from the database if that menu has no related menu items', function(done) {
