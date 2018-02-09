@@ -24,6 +24,8 @@ employeesRouter.param('employeeId', (req, res, next, employeeId) => {
   });
 });
 
+employeesRouter.use('/:employeeId/timesheets', timesheetsRouter);
+
 employeesRouter.get('/', (req, res, next) => {
   db.all('SELECT * FROM Employee', (err, employees) => {
     if(err) {
@@ -112,7 +114,5 @@ employeesRouter.delete('/:employeeId', (req, res, next) => {
     }
   })
 });
-
-employeesRouter.use('/:employeeId/timesheets', timesheetsRouter);
 
 module.exports = employeesRouter;

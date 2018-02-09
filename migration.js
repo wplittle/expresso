@@ -17,7 +17,7 @@ db.serialize(function() {
     "'date' INTEGER NOT NULL, " +
     "'employee_id' INTEGER NOT NULL, " +
     "PRIMARY KEY('id'), " +
-    "FOREIGN KEY('employee_ID') REFERENCES 'Employee'('id') )");
+    "FOREIGN KEY('employee_id') REFERENCES 'Employee'('id') )");
 
   db.run("CREATE TABLE IF NOT EXISTS 'Menu' ( " +
     "'id' INTEGER NOT NULL, " +
