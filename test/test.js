@@ -309,10 +309,11 @@ describe('GET /api/employees', function() {
         .get('/api/employees')
         .then(function(response) {
           const employees = response.body.employees;
-          expect(employees.length).to.equal(2);
+          expect(employees.length).to.equal(3);
           expect(employees.find(employee => employee.id === 1)).to.exist;
           expect(employees.find(employee => employee.id === 2)).to.exist;
-          expect(employees.find(employee => employee.id === 3)).to.not.exist;
+          expect(employees.find(employee => employee.id === 3)).to.exist;
+          expect(employees.find(employee => employee.id === 4)).to.not.exist;
         });
   });
 
